@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="txt" onclick="myDay()">click to show today</h1>
+    <script>
+        function myDay(){
+            let flag = ''
+            let x = new Date()
+            console.log(x);
+            switch(x.getDay()){
+                case 0 : flag = 'sunday' ;break;
+                case 1 : flag = 'monday ';break;
+                case 2 : flag = 'tusday ';break;
+                case 3 : flag = 'wednesday ';break;
+                case 4 : flag = 'thursday ';break;
+                case 5 : flag = 'friday ';break;
+                case 6 : flag = 'saturday ';break;
+                default : flag = 'error';
+            }
+            document.getElementById('txt').innerHTML='today is  : ' + flag + ' and date is : ' + x.toLocaleDateString('fa')
+        }
+
+    </script>
+</body>
+</html>

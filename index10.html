@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        *{
+            margin: 0;padding: 0;box-sizing: border-box;
+        }
+        .menuDesk{
+            width: 50%;
+            height: 100px;
+            margin: 100px auto;
+            display: flex;
+            background-color: rgb(42, 51, 217);
+        }
+        .menuDesk>ul{
+            width: 100%;
+            height: 100%;
+            display: flex;
+
+        }
+        .menuDesk li{
+            list-style-type: none;
+            width: 25%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid black;
+        }
+        @media screen and (max-width:768px) {
+            .menuDesk{
+                display: none;
+            }
+        }
+        @media screen and (min-width:769px) {
+            #ham{
+                display: none;
+            }
+            .menuMob{
+                display: none;
+            }
+        }
+
+        #ham{
+            font-size: 50px;
+            position: fixed;
+            top: 30px;left: 30px;
+            background-color: rgb(29, 75, 191);
+            color: white;
+            cursor: pointer;
+            rotate: 90deg;
+            padding: 10px;
+        }
+        .menuMob{
+            width: 100%;
+            position: fixed;
+            top: 100px;
+            left: -100%;
+            transition: 1s;
+        }
+        .menuMob>ul{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .menuMob li{
+            list-style-type: none;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: center; 
+            align-items: center;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            border-bottom:1px solid rgb(10, 3, 61)
+        }
+        .toggle{
+            left: 0 !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="menuDesk">
+        <ul>
+            <li>home</li>
+            <li>about</li>
+            <li>shop</li>
+            <li>contac</li>
+            <li>blog</li>
+            
+        </ul>
+    </nav>
+
+
+    <span id="ham" onclick="menuToggle()"><i class="bi bi-list"></i></span>
+    <nav class="menuMob">
+        <ul>
+            <li>home</li>
+            <li>about</li>
+            <li>shop</li>
+            <li>contac</li>
+            <li>blog</li>
+        </ul>
+    </nav>
+    <script>
+        function menuToggle(){
+            document.getElementsByClassName('menuMob')[0].classList.toggle('toggle')
+        }
+    </script>
+</body>
+</html>

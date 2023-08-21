@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="num1" placeholder="num1">
+    <button onclick="_op('+')">+</button>
+    <button onclick="_op('-')">-</button>
+    <button onclick="_op('*')">*</button>
+    <button onclick="_op('/')">/</button>
+    <button onclick="_op('C')">C</button>
+    <input type="text" id="num2" placeholder="num2">
+    <button onclick="_sum()">=</button>
+    <span id="sum"></span>
+
+    <script>
+        eval(87-788/78-787+7)
+        let sum = 0
+        function _op(op) {
+            let flag = 0
+            // end define falg***
+            _reset()
+            // end resetting***
+
+            let num1 = Number(document.getElementById('num1').value)
+            let num2 = Number(document.getElementById('num2').value)
+            if (num1 == '' || num1 == null) {
+                document.getElementById('num1').style.border = '2px solid red'
+            } else {
+                document.getElementById('num1').style.border = '2px solid green'
+                flag++
+            }
+            if (num2 == '' || num2 == null) {
+                document.getElementById('num2').style.border = '2px solid red'
+            } else {
+                document.getElementById('num2').style.border = '2px solid green'
+                flag++
+            }
+            // if(!isNaN(+num1) && !isNaN(+num2)){
+
+            // end fetch data****
+            
+            if (flag == 2) {
+                switch (op) {
+                    case '+': sum = num1 + num2; break;
+                    case '-': sum = num1 - num2; break;
+                    case '*': sum = num1 * num2; break;
+                    case '/': sum = num1 / num2; break;
+                    case 'C': clear() ; break;
+
+                }
+            }
+
+        }
+
+
+        const clear = () =>{
+            document.getElementById("num1").value="";
+            document.getElementById("num2").value="";
+            document.getElementById("sum").innerHTML= "";
+        }
+
+        const _reset = () => {
+            document.getElementById('num1').style.border = '1px solid black'
+            document.getElementById('num2').style.border = '1px solid black'
+        }
+
+
+        function _sum(){
+            document.getElementById('sum').innerHTML=sum
+
+        }
+    </script>
+</body>
+
+</html>
